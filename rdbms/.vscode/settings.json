@@ -1,0 +1,26 @@
+{
+    // Stel de verwachte regellengte in, om discussie over leesbaarheid te voorkomen.
+    "editor.rulers": [120],
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "mssql.connections": [
+        {
+            "server": "localhost",
+            "database": "",
+            "authenticationType": "SqlLogin",
+            "user": "SA",
+            "password": "",
+            "emptyPasswordInput": false,
+            "savePassword": false,
+            "profileName": "Webapplicatie (master database)"
+        }
+    ],
+    // Maak VS Code zo gebruikersvriendelijk mogelijk.
+    "workbench.tree.indent": 24,
+    "workbench.startupEditor": "none",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#3F2910",
+        "titleBar.activeBackground": "#593916",
+        "titleBar.activeForeground": "#FDF9F5"
+    }
+}
