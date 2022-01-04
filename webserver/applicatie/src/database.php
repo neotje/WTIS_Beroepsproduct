@@ -8,16 +8,26 @@ if (!$dbPassword) {
     throw new RuntimeException("Database wacthwoord niet gevonden.");
 }
 
-$address = "sqlsrv:Server='" . DB_HOST . "';Database='" . DB_DATABASE . "';ConnectionPooling=0;";
-echo $address;
-echo DB_LOGIN;
-$dbConnection = new PDO($address, DB_LOGIN, $dbPassword);
+$address = "sqlsrv:Server=" . DB_HOST . ";Database=" . DB_DATABASE . ";ConnectionPooling=0;";
+
+try {
+    $dbConnection = new PDO($address, DB_LOGIN, $dbPassword);
+    $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error connecting to SQL Server: " . $e->getMessage());
+}
 
 unset($dbPassword);
-
-$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 function getDatabaseConnection() {
     global $dbConnection;
     return $dbConnection;
+}
+
+function databasePrepare($sql) {
+    global $dbConnection;
+
+    $query = $dbConnection->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+    $query->setFetchMode(PDO::FETCH_ASSOC);
+    return $query;
 }

@@ -5,5 +5,5 @@
 declare(strict_types=1);
 
 define('DB_HOST', 'rdbms');
-define('DB_DATABASE', 'master');
+define('DB_DATABASE', 'netflex');
 define('DB_LOGIN', 'applicatie');
