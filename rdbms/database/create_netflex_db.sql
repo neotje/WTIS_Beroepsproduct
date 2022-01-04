@@ -3,7 +3,7 @@ go
 
 ALTER DATABASE [netflex] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
 go
-DROP DATABASE [netflex]
+DROP DATABASE IF EXISTS [netflex]
 go
 
 create database netflex
@@ -11,6 +11,13 @@ go
 
 use netflex
 go
+
+CREATE LOGIN applicatie WITH PASSWORD = 'testpassword!Hallo-1244!';
+CREATE USER applicatie;
+ALTER ROLE db_datareader ADD MEMBER applicatie;
+ALTER ROLE db_datawriter ADD MEMBER applicatie;
+ALTER DATABASE [netflex] SET MULTI_USER;
+GO
 
 create table Movie(
 	movieID int not null,
