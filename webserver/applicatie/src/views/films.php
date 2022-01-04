@@ -1,7 +1,10 @@
 <?php
 require_once "src/elements.php";
+require_once "src/movieData.php";
+require_once "src/movieView.php";
 
-$title = "Netflex";
+$title = "Films";
+$movies = getMovies();
 
 ?>
 
@@ -12,6 +15,7 @@ $title = "Netflex";
 
 <body>
     <?= getHTMLNavBar() ?>
+    <?= moviesToGridHTML($movies) ?>
     <?= getHTMLFooter() ?>
 </body>
 

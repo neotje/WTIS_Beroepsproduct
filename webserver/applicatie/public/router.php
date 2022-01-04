@@ -13,30 +13,40 @@ Met `parse_url` zoals hieronder aangeroepen pak je alleen het pad-gedeelte.
 Dus dan wordt het `'/pad/naar/pagina'`.
 */
 $urlPad = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+define("URL_PATH", $urlPad);
+
 if ($urlPad === '' || $urlPad === '/') {
-  require_once 'src/views/index.php';
+    require_once 'src/views/index.php';
+} elseif ($urlPad === '/films') {
+    require_once 'src/views/films.php';
+} elseif ($urlPad === '/test') {
+    require_once 'src/views/test.php';
+} elseif (preg_match('/^\/film\/(?P<movieId>\d+)$/', $urlPad, $matches)) {
+    define('MOVIE_ID', $matches["movieId"]);
+    require_once 'src/views/filmDetail.php';
 } else {
-  /*
+    /*
   Er is geen pagina opgevraagd in het HTTP-request.
   Ga ervan uit dat een bestand (zoals een stylesheet) is opgevraagd.
   */
-  $isBestand = preg_match(
-  /*
+    $isBestand = preg_match(
+        /*
   Als het pad eindigt met `.css` of één van de andere door `|` gescheiden bestandsnaamextensies,
   is een geldig bestandstype opgevraagd.
   */
-      '/\.(?:css|png|jpg|jpeg|svg|woff|woff2|ttf|otf|html|mp4|webm|ogm|ogv|ogg|mp3)$/',
-      $urlPad
-  );
-  if ($isBestand) {
-    /*
+        '/\.(?:css|png|jpg|jpeg|svg|woff|woff2|ttf|otf|html|mp4|webm|ogm|ogv|ogg|mp3)$/',
+        $urlPad
+    );
+    if ($isBestand) {
+        /*
     Geef PHP het signaal dat geen pagina maar een bestand opgevraagd is.
     PHP stuurt dan het bestand op naar de client.
     */
-    return false;
-  } else {
-    // Het is een bekende pagina noch een geldig bestandstype.
-    http_response_code(404);
-    require_once 'src/views/404.php';
-  }
+        return false;
+    } else {
+        // Het is een bekende pagina noch een geldig bestandstype.
+        http_response_code(404);
+        require_once 'src/views/404.php';
+    }
 }
