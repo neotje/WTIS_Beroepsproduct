@@ -39,6 +39,10 @@
         },
         // Maak VS Code zo gebruikersvriendelijk mogelijk.
         "workbench.tree.indent": 24,
-        "workbench.startupEditor": "none"
+        "workbench.startupEditor": "none",
+        "intelephense.format.braces": "k&r",
+        "[php]": {
+            "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+        }
     }
 }

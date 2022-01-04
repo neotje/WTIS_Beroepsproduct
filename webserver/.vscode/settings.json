@@ -6,5 +6,6 @@
     "activityBar.background": "#1d7621",
     "titleBar.activeBackground": "#739b3e",
     "titleBar.activeForeground": "#FBFAFE"
-  }
+},
+"intelephense.format.braces": "k&r"
 }
