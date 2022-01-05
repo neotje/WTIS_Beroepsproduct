@@ -1,13 +1,11 @@
 <?php
-require_once "src/elements.php";
-require_once "src/movieData.php";
-require_once "src/genreData.php";
-require_once "src/movieView.php";
-require_once "src/genreView.php";
+require_once "src/uiComponents.php";
+require_once "src/movie/movieComponents.php";
+require_once "src/movie/movieData.php";
+require_once "src/genre/genreComponents.php";
+require_once "src/genre/genreData.php";
 
 $title = "Films";
-$movies = getMovies();
-$genres = getAllGenres();
 
 
 $genreFilter = "";
@@ -20,6 +18,9 @@ if (isset($_GET['genre']) && $_GET["genre"] !== "") {
 if (isset($_GET['title']) && trim($_GET["title"]) !== "") {
     $titleFilter = $_GET['title'];
 }
+
+$movies = getMovies($genreFilter, $titleFilter);
+$genres = getAllGenres();
 ?>
 
 <!DOCTYPE html>

@@ -7,16 +7,7 @@ function minutesToHourAndMinutes($minutes) {
     return $hours . "h " . $remainingMinutes . "m";
 }
 
-function getMovieCoverImageURL($movie) {
-    $imgUrl = "img/";
-    if ($movie["coverImage"] === NULL || !is_file("public/img/covers/$movie[coverImage]")) {
-        $imgUrl .= "unkown-cover.jpg";
-    } else {
-        $imgUrl .= "covers/" . $movie["coverImage"];
-    }
 
-    return $imgUrl;
-}
 
 function moviesToGridHTML($movies) {
     $moviesHTML = "";
@@ -27,7 +18,7 @@ function moviesToGridHTML($movies) {
         $title = $movie["title"];
         $publicationYear = $movie["publicationYear"];
         $duration = minutesToHourAndMinutes($movie["duration"]);
-        $img = getMovieCoverImageURL($movie);
+        $img = $movie["coverImage"];
 
         $moviesHTML .= "
 <a class='item' href='/film/$id'>
@@ -90,17 +81,6 @@ function movieDetailToAbout($details) {
     <p>
         $description
     </p>
-    <h2>Regisseur:</h2>
-    <ul class='avatar-list'>
-        <li>
-            <figure>
-                <img src='/img/1917/sam-m.jpeg' alt='George MacKay'>
-                <figcaption class='names'>
-                    <p class='name'>Sam Mendes</p>
-                </figcaption>
-            </figure>
-        </li>
-    </ul>
 </section>
     ";
 }

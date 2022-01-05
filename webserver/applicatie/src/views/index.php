@@ -1,7 +1,7 @@
 <?php
-require_once "src/elements.php";
-require_once "src/movieData.php";
-require_once "src/movieView.php";
+require_once "src/uiComponents.php";
+require_once "src/movie/movieComponents.php";
+require_once "src/movie/movieData.php";
 
 $title = "Netflex";
 $recentlyAddedMovies = getRandomMovies(5);

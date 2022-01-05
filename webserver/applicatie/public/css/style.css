@@ -798,7 +798,7 @@ footer .footer-container .contact {
 
 .statement,
 .about {
-    min-height: 60vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
