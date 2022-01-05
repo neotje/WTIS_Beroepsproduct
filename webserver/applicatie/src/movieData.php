@@ -1,5 +1,6 @@
 <?php
 require_once "src/database.php";
+require_once "src/genreData.php";
 
 function getMovies() {
     $query = databasePrepare("select * from Movie");
@@ -8,15 +9,9 @@ function getMovies() {
     return $query->fetchAll();
 }
 
-function getMovieGenres($id) {
-    $query = databasePrepare("
-SELECT g.genreName, g.description
-FROM Genre g 
-JOIN MovieGenre mg on g.genreName = mg.genreName 
-WHERE mg.movieID = :movieID
-    ");
-
-    $query->execute([":movieID" => $id]);
+function getRandomMovies($amount) {
+    $query = databasePrepare("SELECT TOP $amount * FROM Movie m ORDER BY NEWID()");
+    $query->execute();
 
     return $query->fetchAll();
 }

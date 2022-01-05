@@ -9,7 +9,7 @@ function minutesToHourAndMinutes($minutes) {
 
 function getMovieCoverImageURL($movie) {
     $imgUrl = "img/";
-    if ($movie["coverImage"] === NULL) {
+    if ($movie["coverImage"] === NULL || !is_file("public/img/covers/$movie[coverImage]")) {
         $imgUrl .= "unkown-cover.jpg";
     } else {
         $imgUrl .= "covers/" . $movie["coverImage"];
@@ -44,6 +44,29 @@ function moviesToGridHTML($movies) {
     }
 
     return "<section class='image-grid'>$moviesHTML</section>";
+}
+
+function movieToHorizontalScrollList($movies) {
+
+    $moviesHTML = "";
+
+    foreach ($movies as $movie) {
+        $id = $movie["movieID"];
+        $title = $movie["title"];
+        $img = getMovieCoverImageURL($movie);
+
+        $moviesHTML .= "
+<a href='/film/$id'>
+    <img class='item' src='$img' alt='$title' />
+</a>
+        ";
+    }
+
+    return "
+<div class='horizontal-scroll'>
+    $moviesHTML
+</div>
+    ";
 }
 
 function movieDetailToAbout($details) {

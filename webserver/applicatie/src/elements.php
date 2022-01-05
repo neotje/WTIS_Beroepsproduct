@@ -1,6 +1,6 @@
 <?php
 
-function getHTMLHeader($title) {
+function getHeader($title) {
     return "
 <head>
     <meta charset='UTF-8'>
@@ -23,7 +23,7 @@ function getButton($href, $name, $extraClasses = "", $type = "") {
     return "<a href='$href' class='$class $extraClasses'>$name</a>";
 }
 
-function getHTMLNavBar() {
+function getNavBar() {
     return "
 <nav>
     " . getButton("/", "<img src='/img/netflex.png' alt='home'>", "img-button") . "
@@ -44,7 +44,7 @@ function getHTMLNavBar() {
     ";
 }
 
-function getHTMLFooter() {
+function getFooter() {
     return "
 <footer>
     <div class='footer-container'>
@@ -82,5 +82,14 @@ function getHTMLFooter() {
         </section>
     </div>
 </footer>
+    ";
+}
+
+function getTextField($label, $name, $value = "", $type = "text") {
+    return "
+<div class='text-field'>
+    <input type='$type' name='$name' placeholder=' ' value='$value'>
+    <label>$label</label>
+</div>
     ";
 }

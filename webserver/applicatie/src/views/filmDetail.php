@@ -17,16 +17,16 @@ $title = $movieDetail["title"]
 <!DOCTYPE html>
 <html lang="en">
 
-<?= getHTMLHeader($title) ?>
+<?= getHeader($title) ?>
 
 <body>
-    <?= getHTMLNavBar() ?>
+    <?= getNavBar() ?>
 
     <main class="movie-content">
         <?= movieDetailToAbout($movieDetail) ?>
     </main>
 
-    <?= getHTMLFooter() ?>
+    <?= getFooter() ?>
 </body>
 
 </html>
