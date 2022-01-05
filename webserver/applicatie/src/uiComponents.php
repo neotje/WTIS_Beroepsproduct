@@ -56,16 +56,16 @@ function getFooter() {
             <h6>Pagina's</h6>
             <ul class='link-list'>
                 <li>
-                    <a href='/index.html'>Home</a>
+                    <a href='/'>Home</a>
                 </li>
                 <li>
-                    <a href='/films.html'>Film overzicht</a>
+                    <a href='/films'>Film overzicht</a>
                 </li>
                 <li>
-                    <a href='/login.html'>login</a>
+                    <a href='/login'>login</a>
                 </li>
                 <li>
-                    <a href='/registreren.html'>registratie</a>
+                    <a href='/registreren'>registratie</a>
                 </li>
             </ul>
         </section>
@@ -73,10 +73,10 @@ function getFooter() {
             <h6>Info</h6>
             <ul class='link-list'>
                 <li>
-                    <a href='/privacy.html'>Privacy Verklaring</a>
+                    <a href='/privacy'>Privacy Verklaring</a>
                 </li>
                 <li>
-                    <a href='/about.html'>Over ons</a>
+                    <a href='/over'>Over ons</a>
                 </li>
             </ul>
         </section>

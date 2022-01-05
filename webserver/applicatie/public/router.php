@@ -25,6 +25,8 @@ if ($urlPad === '' || $urlPad === '/') {
 } elseif (preg_match('/^\/film\/(?P<movieId>\d+)$/', $urlPad, $matches)) {
     define('MOVIE_ID', $matches["movieId"]);
     require_once 'src/views/filmDetail.php';
+} elseif ($urlPad === '/over') {
+    require_once 'src/views/about.php';
 } else {
     /*
   Er is geen pagina opgevraagd in het HTTP-request.

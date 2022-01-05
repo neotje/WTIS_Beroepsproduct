@@ -1,19 +1,25 @@
 <?php
+require_once "src/uiComponents.php";
 
-declare(strict_types=1);
-
+$title = "404";
 ?>
+
 <!DOCTYPE html>
-<html lang="nl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fletnix</title>
-  </head>
-  <body>
+<html lang="en">
+
+<?= getHeader($title) ?>
+
+<body>
+    <?= getNavBar() ?>
+
     <main>
-      <h1>Niets gevonden</h1>
-      <p>Op deze locatie werd niets gevonden.</p>
+        <section class="landing">
+            <div class="gradient"></div>
+            <h1>Ik ken deze pagina niet.</h1>
+        </section>
     </main>
-  </body>
+
+    <?= getFooter() ?>
+</body>
+
 </html>
