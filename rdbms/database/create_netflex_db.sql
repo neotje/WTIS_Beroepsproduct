@@ -65,6 +65,7 @@ create table Person(
 	firstName varchar(20) not null,
 	lastName varchar(50) not null,
 	gender char,
+	imageFile varchar(255),
 
 	constraint PK_Person primary key(personID),
 	constraint AK_Person unique(firstName, lastName)
