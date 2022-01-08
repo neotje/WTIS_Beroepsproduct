@@ -18,23 +18,25 @@ go
 delete from Movie
 go
 
-delete from Subscription
-go
-
 delete from Users
 go
 
-insert into Movie(movieID, title, publicationYear, duration, coverImage, description)
+
+delete from Subscription
+go
+
+
+insert into Movie(movieID, title, publicationYear, duration, coverImage, trailerURL, description)
 values
-	(1, 'Venom', 2018, 112, 'venom.jpg', 'A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.'),
-	(2, 'Free Guy', 2021, 115, 'free-guy.jpg', 'A bank teller discovers that he''s actually an NPC inside a brutal, open world video game.'),
-	(3, 'Cruella', 2021, 134, 'cruella.jpg', 'A live-action prequel feature film following a young Cruella de Vil.'),
-	(4, 'Interstellar', 2014, 169, 'interstellar.jpg', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.'),
-	(5, 'The Old Guard', 2020, 125, 'old-guard.jpg', 'A covert team of immortal mercenaries is suddenly exposed and must now fight to keep their identity a secret just as an unexpected new member is discovered.'),
-	(6, 'Inception', 2010, 148, 'inception.jpg', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.'),
-	(7, 'John Wick', 2014, 101, 'john-wick.jpg', 'An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.'),
-	(8, 'The Matrix Reloaded', 2003, 138, 'matrix-reloaded.jpg', 'Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.'),
-	(9, 'Parasite', 2019, 132, 'parasite.jpg', 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.')
+	(1, 'Venom', 2018, 112, 'venom.jpg', 'https://www.youtube.com/embed/u9Mv98Gr5pY', 'A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.'),
+	(2, 'Free Guy', 2021, 115, 'free-guy.jpg', 'https://www.youtube.com/embed/X2m-08cOAbc', 'A bank teller discovers that he''s actually an NPC inside a brutal, open world video game.'),
+	(3, 'Cruella', 2021, 134, 'cruella.jpg', 'https://www.youtube.com/embed/gmRKv7n2If8', 'A live-action prequel feature film following a young Cruella de Vil.'),
+	(4, 'Interstellar', 2014, 169, 'interstellar.jpg', 'https://www.youtube.com/embed/zSWdZVtXT7E', 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity''s survival.'),
+	(5, 'The Old Guard', 2020, 125, 'old-guard.jpg', 'https://www.youtube.com/embed/aK-X2d0lJ_s', 'A covert team of immortal mercenaries is suddenly exposed and must now fight to keep their identity a secret just as an unexpected new member is discovered.'),
+	(6, 'Inception', 2010, 148, 'inception.jpg', 'https://www.youtube.com/embed/YoHD9XEInc0', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.'),
+	(7, 'John Wick', 2014, 101, 'john-wick.jpg', 'https://www.youtube.com/embed/2AUmvWm5ZDQ', 'An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.'),
+	(8, 'The Matrix Reloaded', 2003, 138, 'matrix-reloaded.jpg', 'https://www.youtube.com/embed/zmYE3tg26Qc', 'Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.'),
+	(9, 'Parasite', 2019, 132, 'parasite.jpg', 'https://www.youtube.com/embed/SEUXfv87Wpk', 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.')
 go
 
 insert into Genre(genreName)
@@ -163,5 +165,12 @@ values
 	(8, 29),
 	(8, 30),
 	(9, 34)
+go
+
+insert into Subscription(name, price, devices, resolution)
+values
+	('Basic', 7.99, 1, 'HD'),
+	('Standard', 11.99, 2, 'Full HD'),
+	('Pro', 15.99, 4, '4K HDR')
 go
 

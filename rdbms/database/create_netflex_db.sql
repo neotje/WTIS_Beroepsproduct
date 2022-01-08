@@ -95,26 +95,30 @@ go
 
 
 create table Subscription(
-	subscriptionID int not null,
+	name varchar(50) not null,
 	price float not null,
-	name varchar(255) not null,
+	devices int not null,
+	resolution varchar(50) not null,
 
-	constraint PK_Subscription primary key(subscriptionID)
+	constraint PK_Subscription primary key(name),
+	constraint CK_Devices check(devices > 0)
 )
 
 create table Users (
 	userID int not null identity(1,1),
 
 	email varchar(255) not null,
+	password varchar(255) not null,
+	
 	firstName varchar(20) not null,
 	lastName varchar(50) not null,
 	birthYear int not null,
 	accountNumber varchar(18) not null,
 
-	subscriptionID int not null,
+	subscription varchar(50) not null,
 
 	constraint PK_Users primary key(userID),
-	constraint FK_Subscription foreign key(subscriptionID) references Subscription(subscriptionID),
+	constraint FK_Subscription foreign key(subscription) references Subscription(name),
 	constraint AK_email unique(email)
 )
 go
