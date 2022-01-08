@@ -65,7 +65,7 @@ function getRandomMovies($amount) {
 
 function getMovieDetail($id) {
     $query = databasePrepare("
-SELECT m.title, m.publicationYear, m.duration, m.description, m.coverImage, m.trailerURL, m.movieURL
+SELECT m.movieID, m.title, m.publicationYear, m.duration, m.description, m.coverImage, m.trailerURL, m.movieURL
 FROM Movie m 
 WHERE m.movieID = :movieID 
     ");

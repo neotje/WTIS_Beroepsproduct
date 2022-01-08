@@ -13,14 +13,14 @@ function getHeader($title) {
     ";
 }
 
-function getButton($href, $name, $extraClasses = "", $type = "") {
+function getButton($href, $name, $extraClasses = "", $type = "", $element = "a") {
     $class = "button";
 
     if ($type !== "") {
         $class .= "--$type";
     }
 
-    return "<a href='$href' class='$class $extraClasses'>$name</a>";
+    return "<$element href='$href' class='$class $extraClasses'>$name</$element>";
 }
 
 function getNavBar() {
@@ -85,10 +85,20 @@ function getFooter() {
     ";
 }
 
-function getTextField($label, $name, $value = "", $type = "text") {
+function getTextField($label, $name, $attributes = array("type" => "text"), $value = "") {
+    $attributesHTML = "";
+
+    foreach ($attributes as $key => $val) {
+        if (is_int($key)) {
+            $attributesHTML .= " $val";
+        } else {
+            $attributesHTML .= " $key='$val'";
+        }
+    }
+
     return "
 <div class='text-field'>
-    <input type='$type' name='$name' placeholder=' ' value='$value'>
+    <input name='$name' placeholder=' ' value='$value' $attributesHTML>
     <label>$label</label>
 </div>
     ";

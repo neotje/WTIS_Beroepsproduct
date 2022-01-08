@@ -2,7 +2,8 @@
 require_once 'src/uiComponents.php';
 require_once 'src/movie/movieComponents.php';
 require_once 'src/movie/movieData.php';
-require_once 'src/person/personView.php';
+require_once 'src/person/personComponents.php';
+require_once 'src/user/userState.php';
 
 try {
     $movieDetail = getMovieDetail(MOVIE_ID);
@@ -12,7 +13,7 @@ try {
     die($e);
 }
 
-$title = $movieDetail["title"]
+$title = "Netflex - $movieDetail[title]";
 
 ?>
 
@@ -25,6 +26,12 @@ $title = $movieDetail["title"]
     <?= getNavBar() ?>
 
     <main class="movie-content">
+        <?= movieToTrailerVideo($movieDetail) ?>
+
+        <section class="controls">
+            <?= movieToPlayButton($movieDetail, isLoggedIn()) ?>
+        </section>
+
         <?= movieDetailToAbout($movieDetail) ?>
 
         <section class="cast">

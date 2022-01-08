@@ -60,15 +60,15 @@ function movieToHorizontalScrollList($movies) {
     ";
 }
 
-function movieDetailToAbout($details) {
+function movieDetailToAbout($movieDetails) {
 
-    $title = $details['title'];
-    $publicationYear = $details['publicationYear'];
-    $duration = minutesToHourAndMinutes($details['duration']);
-    $description = $details['description'];
+    $title = $movieDetails['title'];
+    $publicationYear = $movieDetails['publicationYear'];
+    $duration = minutesToHourAndMinutes($movieDetails['duration']);
+    $description = $movieDetails['description'];
 
     $genres = array();
-    foreach ($details['genres'] as $genre) {
+    foreach ($movieDetails['genres'] as $genre) {
         $genres[] = $genre['genreName'];
     }
 
@@ -83,4 +83,33 @@ function movieDetailToAbout($details) {
     </p>
 </section>
     ";
+}
+
+function movieToTrailerVideo($movieDetails) {
+    $url = "https://www.youtube.com/embed/XIMLoLxmTDw";
+
+    if (isset($movieDetails['trailerURL']) && $movieDetails['trailerURL'] !== NULL) {
+        $url = $movieDetails['trailerURL'];
+    }
+
+    return "
+    <div class='movie-trailer elevation2'>
+        <iframe src='$url?&autoplay=1&modestbranding=1' title='$movieDetails[title]' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+    </div>";
+}
+
+function movieToPlayButton($movieDetails, $show) {
+    $html = "";
+    $id = $movieDetails['movieID'];
+
+    if ($show) {
+        $html = "
+        <p>Film afspelen:</p>
+        <a href='/film/$id/kijken' class='play-button'>
+            <div class='icon'></div>
+        </a>
+        ";
+    }
+
+    return $html;
 }

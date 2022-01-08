@@ -31,3 +31,7 @@ function databasePrepare($sql) {
     $query->setFetchMode(PDO::FETCH_ASSOC);
     return $query;
 }
+
+function cleanUpString($str) {
+    return strip_tags(htmlspecialchars($str));
+}

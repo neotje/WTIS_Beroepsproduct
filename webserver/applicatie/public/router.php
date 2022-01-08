@@ -25,8 +25,13 @@ if ($urlPad === '' || $urlPad === '/') {
 } elseif (preg_match('/^\/film\/(?P<movieId>\d+)$/', $urlPad, $matches)) {
     define('MOVIE_ID', $matches["movieId"]);
     require_once 'src/views/filmDetail.php';
+} elseif (preg_match('/^\/film\/(?P<movieId>\d+)\/kijken$/', $urlPad, $matches)) {
+    define('MOVIE_ID', $matches["movieId"]);
+    require_once 'src/views/filmWatch.php';
 } elseif ($urlPad === '/over') {
     require_once 'src/views/about.php';
+} elseif ($urlPad === '/registreren') {
+    require_once 'src/views/register.php';
 } else {
     /*
   Er is geen pagina opgevraagd in het HTTP-request.

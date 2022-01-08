@@ -34,7 +34,7 @@ $genres = getAllGenres();
     <main>
         <form class="filters" method="get" action="">
 
-            <?= getTextField("Zoeken...", "title", $titleFilter) ?>
+            <?= getTextField("Zoeken...", "title", array("type" => "text"), $titleFilter) ?>
 
             <div class="form-field">
                 <label for="genre">genre:</label>
