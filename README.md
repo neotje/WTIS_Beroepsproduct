@@ -5,6 +5,7 @@
 2. Op een gegeven moment krijg je de vraag of je de dev container binnen deze map wilt activeren.
 
 ![Folder containers a dev container configuration file.](img/Folder_contains_a_dev_configuration_file_Reopen_folder_to_develop_in_a_container.png)
+3. wacht totdat de installatie klaar is.
 
 ### netflex server installeren
 1. gebruik Microsoft SQL Server management studio om in te loggen op `localhost` met gebruikersnaam `sa` en het wachtwoord staat in `password_rdbms_admin.txt`
