@@ -4,8 +4,7 @@ require_once "src/movie/movieComponents.php";
 require_once "src/movie/movieData.php";
 
 $title = "Netflex";
-$recentlyAddedMovies = getRandomMovies(5);
-$trendingMovies = getRandomMovies(5);
+$randomMovies = getRandomMovies(6);
 
 ?>
 
@@ -27,13 +26,8 @@ $trendingMovies = getRandomMovies(5);
         </section>
 
         <section class="recently-added">
-            <h2>Onlangs toegevoegd:</h2>
-            <?= movieToHorizontalScrollList($recentlyAddedMovies) ?>
-        </section>
-
-        <section class="trending">
-            <h2>Trending:</h2>
-            <?= movieToHorizontalScrollList($trendingMovies) ?>
+            <h2>Een selectie uit ons aanbod:</h2>
+            <?= movieToHorizontalScrollList($randomMovies) ?>
         </section>
 
         <section class="last-section">

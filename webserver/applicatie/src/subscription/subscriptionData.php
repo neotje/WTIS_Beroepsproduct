@@ -2,8 +2,8 @@
 require_once "src/database.php";
 
 function getListOfSubscriptions() {
-    $query = databasePrepare("SELECT * FROM Subscription ORDER BY price");
-    $query->execute();
+    $db = getDatabaseConnection();
+    $data = $db->query("SELECT * FROM Subscription ORDER BY price");
 
-    return $query->fetchAll();
+    return $data->fetchAll();
 }

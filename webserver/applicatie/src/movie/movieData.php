@@ -8,6 +8,7 @@ function getMovieCoverImageURL($movie) {
     $imgUrl = "img/covers/";
     $filePath = "public/img/covers/$coverImage";
 
+    // check of de foto ook echt bestaat.
     if (is_file($filePath)) {
         $imgUrl .= $coverImage;
     } else {
@@ -24,6 +25,7 @@ function getMovies($genre = "", $title = "") {
     $genre = trim($genre);
     $title = trim($title);
 
+    // als er een genre is opgegeven voeg de where statement toe.
     if ($genre !== "") {
         $sql .= " JOIN MovieGenre mg on m.movieID = mg.movieID";
         $sql .= " WHERE mg.genreName = :genre";
@@ -41,6 +43,7 @@ function getMovies($genre = "", $title = "") {
         $params[":title"] = $title;
     }
 
+    // sorteer op titel
     $sql .= " ORDER BY m.title";
     $query = databasePrepare($sql);
     $query->execute($params);
@@ -57,6 +60,7 @@ function getMovies($genre = "", $title = "") {
 }
 
 function getRandomMovies($amount) {
+    // om een of andere reden kan ik hier geen :amount parameter meegeven.
     $query = databasePrepare("SELECT TOP $amount * FROM Movie m ORDER BY NEWID()");
     $query->execute();
 

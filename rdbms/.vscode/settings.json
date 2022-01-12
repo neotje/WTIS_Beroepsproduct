@@ -19,8 +19,8 @@
     "workbench.tree.indent": 24,
     "workbench.startupEditor": "none",
     "workbench.colorCustomizations": {
-        "activityBar.background": "#3F2910",
-        "titleBar.activeBackground": "#593916",
+        "activityBar.background": "#a1781f",
+        "titleBar.activeBackground": "#8f5b23",
         "titleBar.activeForeground": "#FDF9F5"
     }
 }

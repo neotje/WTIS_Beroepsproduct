@@ -47,7 +47,7 @@ if ($allFieldsInPost) {
         );
 
         if ($result) {
-            $messageHTML = "<p>Registratie is gelukt!</p>";
+            $messageHTML = "<p>Registratie is gelukt! U kunt nu <a href='/login'>hier</a> inloggen</p>";
         } else {
             $messageHTML = "<p>Er is iets misgegaan, probeer het opnieuw.</p>";
         }

@@ -29,7 +29,7 @@ $title = "Netflex - $movieDetail[title]";
         <?= movieToTrailerVideo($movieDetail) ?>
 
         <section class="controls">
-            <?= movieToPlayButton($movieDetail, isLoggedIn()) ?>
+            <?= movieToPlayButton($movieDetail, isAnUserLoggedIn()) ?>
         </section>
 
         <?= movieDetailToAbout($movieDetail) ?>

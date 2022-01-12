@@ -1,4 +1,5 @@
 <?php
+require_once "src/user/userComponents.php";
 
 function getHeader($title) {
     return "
@@ -33,13 +34,7 @@ function getNavBar() {
         " . getButton("/over", "Over") . "
     </div>
 
-    <div class='dropdown'>
-        <div class='dropdown-button button--primary'>Account</div>
-        <div class='dropdown-content'>
-            " . getButton("/registreren", "Registreren") . "
-            " . getButton("/login", "Login") . "
-        </div>
-    </div>
+    " . getUserNavBarHTML() . "
 </nav>
     ";
 }

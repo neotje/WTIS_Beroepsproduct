@@ -2,14 +2,14 @@
 require_once "src/database.php";
 
 function getAllGenres() {
-    $query = databasePrepare("
+    $db = getDatabaseConnection();
+    $data = $db->query("
 select g.genreName 
 from Genre g 
 order by g.genreName
     ");
 
-    $query->execute();
-    $rows = $query->fetchAll();
+    $rows = $data->fetchAll();
     $genres = array();
 
     foreach ($rows as $row) {

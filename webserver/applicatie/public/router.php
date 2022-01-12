@@ -19,19 +19,25 @@ define("URL_PATH", $urlPad);
 if ($urlPad === '' || $urlPad === '/') {
     require_once 'src/views/index.php';
 } elseif ($urlPad === '/films') {
-    require_once 'src/views/films.php';
+    require_once 'src/views/movies.php';
 } elseif ($urlPad === '/test') {
     require_once 'src/views/test.php';
 } elseif (preg_match('/^\/film\/(?P<movieId>\d+)$/', $urlPad, $matches)) {
     define('MOVIE_ID', $matches["movieId"]);
-    require_once 'src/views/filmDetail.php';
+    require_once 'src/views/movieDetail.php';
 } elseif (preg_match('/^\/film\/(?P<movieId>\d+)\/kijken$/', $urlPad, $matches)) {
     define('MOVIE_ID', $matches["movieId"]);
-    require_once 'src/views/filmWatch.php';
+    require_once 'src/views/movieWatch.php';
 } elseif ($urlPad === '/over') {
     require_once 'src/views/about.php';
+} elseif ($urlPad === '/privacy') {
+    require_once 'src/views/privacy.php';
 } elseif ($urlPad === '/registreren') {
     require_once 'src/views/register.php';
+} elseif ($urlPad === '/login') {
+    require_once 'src/views/login.php';
+} elseif ($urlPad === '/uitloggen') {
+    require_once 'src/views/logout.php';
 } else {
     /*
   Er is geen pagina opgevraagd in het HTTP-request.

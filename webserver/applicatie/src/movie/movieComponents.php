@@ -98,6 +98,19 @@ function movieToTrailerVideo($movieDetails) {
     </div>";
 }
 
+function movieToMoviePlayer($movieDetails) {
+    $url = "https://www.youtube.com/embed/XIMLoLxmTDw";
+
+    if (isset($movieDetails['movieURL']) && $movieDetails['movieURL'] !== NULL) {
+        $url = $movieDetails['movieURL'];
+    }
+
+    return "
+    <div class='movie-player elevation2'>
+        <iframe src='$url?&autoplay=1&modestbranding=1' title='$movieDetails[title]' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+    </div>";
+}
+
 function movieToPlayButton($movieDetails, $show) {
     $html = "";
     $id = $movieDetails['movieID'];

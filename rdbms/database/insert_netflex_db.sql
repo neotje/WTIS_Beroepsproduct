@@ -36,7 +36,9 @@ values
 	(6, 'Inception', 2010, 148, 'inception.jpg', 'https://www.youtube.com/embed/YoHD9XEInc0', 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.'),
 	(7, 'John Wick', 2014, 101, 'john-wick.jpg', 'https://www.youtube.com/embed/2AUmvWm5ZDQ', 'An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.'),
 	(8, 'The Matrix Reloaded', 2003, 138, 'matrix-reloaded.jpg', 'https://www.youtube.com/embed/zmYE3tg26Qc', 'Freedom fighters Neo, Trinity and Morpheus continue to lead the revolt against the Machine Army, unleashing their arsenal of extraordinary skills and weaponry against the systematic forces of repression and exploitation.'),
-	(9, 'Parasite', 2019, 132, 'parasite.jpg', 'https://www.youtube.com/embed/SEUXfv87Wpk', 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.')
+	(9, 'Parasite', 2019, 132, 'parasite.jpg', 'https://www.youtube.com/embed/SEUXfv87Wpk', 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.'),
+	(10, 'Sing', 2016, 108, 'sing.jpg', 'https://www.youtube.com/embed/9qPgK_u4vX8', 'In a city of humanoid animals, a hustling theater impresario''s attempt to save his theater with a singing competition becomes grander than he anticipates even as its finalists find that their lives will never be the same.'),
+	(11, 'Baby Driver', 2017, 113, 'baby-driver.jpg', 'https://www.youtube.com/embed/z2z857RSfhk', 'After being coerced into working for a crime boss, a young getaway driver finds himself taking part in a heist doomed to fail.')
 go
 
 insert into Genre(genreName)
@@ -48,7 +50,9 @@ values
 	('Misdaad'),
 	('Drama'),
 	('Fantasy'),
-	('Thriller')
+	('Thriller'),
+	('Animatie'),
+	('Familie')
 go
 
 insert into MovieGenre(movieID, genreName)
@@ -78,7 +82,13 @@ values
 	(8, 'Sci-Fi'),
 	(9, 'Comedy'),
 	(9, 'Drama'),
-	(9, 'Thriller')
+	(9, 'Thriller'),
+	(10, 'Animatie'),
+	(10, 'Comedy'),
+	(10, 'Familie'),
+	(11, 'Actie'),
+	(11, 'Misdaad'),
+	(11, 'Drama')
 go
 
 insert into Person(personID, firstName, lastName, personImage)
@@ -118,7 +128,10 @@ values
 	(34, 'Bong Joon', 'Ho', 'bong-joon-ho.jpeg'),
 	(35, 'Kang-ho', 'Song', 'kang-ho-song.jpeg'),
 	(36, 'Sun-kyun', 'Lee', 'sun-kyun-lee.jpeg'),
-	(37, 'Yeo-jeong', 'Cho', 'yeo-young-cho.jpeg')
+	(37, 'Yeo-jeong', 'Cho', 'yeo-young-cho.jpeg'),
+	(38, 'Garth', 'Jennings', 'garth-j.jpeg'),
+	(39, 'Edgar', 'Wright', 'edgar-w.jpeg'),
+	(40, 'Ansel', 'Elgort', 'ansel-e.jpeg')
 go
 
 insert into MovieCast(movieID, personID, characterName)
@@ -148,7 +161,9 @@ values
 	(8, 33, 'Trinity'),
 	(9, 35, 'Ki Taek'),
 	(9, 36, 'Dong Ik'),
-	(9, 37, 'Yeon Kyo')
+	(9, 37, 'Yeon Kyo'),
+	(10, 12, 'Buster Moon'),
+	(11, 40, 'Baby')
 go
 
 insert into MovieDirector(movieID, personID)
@@ -164,7 +179,9 @@ values
 	(7, 28),
 	(8, 29),
 	(8, 30),
-	(9, 34)
+	(9, 34),
+	(10, 38),
+	(11, 39)
 go
 
 insert into Subscription(name, price, devices, resolution)

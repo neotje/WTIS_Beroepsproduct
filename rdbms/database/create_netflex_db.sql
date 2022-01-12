@@ -32,8 +32,6 @@ create table Movie(
 	trailerURL varchar(255),
 	movieURL varchar(255),
 	
-	addedOn date default getdate() not null,
-
 	constraint PK_Movie primary key(movieID),
 	constraint CK_PublicationYearDuration check(publicationYear >= 0 AND duration >= 0)
 )
